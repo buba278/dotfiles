@@ -1,0 +1,6 @@
+[Desktop Entry]
+Name=STM32CubeIDE
+Exec=/home/chris/code/st/stm32cubeide/stm32cubeide %u
+NoDisplay=true
+Type=Application
+MimeType=x-scheme-handler/eclipse+command;x-scheme-handler/eclipse+mpc;

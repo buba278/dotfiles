@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Game 378543094531883009
+Exec=/home/chris/.etterna/Etterna %u
+Type=Application
+NoDisplay=true
+Categories=Discord;Games;
+MimeType=x-scheme-handler/discord-378543094531883009;
