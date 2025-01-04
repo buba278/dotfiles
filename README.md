@@ -5,8 +5,18 @@
 Things to cover
 fonts cursor wm bar runner appimages packages sshkey and agent stow system debinstal spotify yazi
 
+setup sudoers file:
 ```
-sudo apt install alacritty code feh fonts-firacode fonts-jetbrains-mono gh git i3 opentabletdriver qalc scrot stow xclip zathura
+vi /etc/sudoers
+```
+
+then add this line:
+```
+chris  ALL=(ALL) ALL
+```
+
+```
+sudo apt install alacritty code feh fonts-firacode fonts-jetbrains-mono gh git i3 opentabletdriver qalc scrot stow xclip zathura vim
 ```
 
 Other Apps (non packages):
