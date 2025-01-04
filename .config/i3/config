@@ -60,6 +60,7 @@ bindsym $mod+d exec --no-startup-id dmenu_run -b
 
 # take screenshot
 bindsym --release Print exec --no-startup-id scrot -s - | xclip -selection clipboard -t image/png
+bindsym --release $mod+Print exec --no-startup-id scrot -s ~/Pictures/ss/screenshot_%Y-%m-%d_%H-%M-%S.png 
 
 
 # change focus
