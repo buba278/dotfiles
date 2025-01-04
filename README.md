@@ -17,10 +17,39 @@ Other Apps (non packages):
 # Windows
 This is less important cause its not like actual dotfiles but a good refresher to do the manual setup a bit quicker
 
+Debloat windows with the [Chris Titus tool](https://github.com/ChrisTitusTech/winutil)
 ## Microwin
-Debloat windows with the Chris Titus tool ([link](https://github.com/ChrisTitusTech/winutil))
-
-Run:
+Run with admin:
 ```
 irm "https://christitus.com/win" | iex
 ```
+First get the MicroWin ISO to reinstall.
+
+When getting the ISO if there is a script running error, change the permissions
+```
+Set-ExecutionPolicy -ExecutionPolicy Unrestricted
+```
+Put on a ventoy drive if want
+
+## Apps
+- Photoshop / Adobe stuff (m0nkrus)
+- Altium
+- Equalizer APO / Peace
+- LTSpice
+- Teams
+- Moku
+- Motec Build/Tune/i2
+- Obsidian
+- Osu
+  - Batch Beatmap Downloader
+  - Osu trainer
+  - OBS
+- qalc
+- qBittorrent
+- Spotify/Spicetify
+- Stm32CubeIDE
+- Vesktop/Discord
+- 7zip
+- Xpp/Onenote
+- Candapter Analyzer
+- Fusion 360
