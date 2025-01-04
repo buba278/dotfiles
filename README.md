@@ -7,7 +7,8 @@ fonts cursor wm bar runner appimages packages sshkey and agent stow system debin
 
 setup sudoers file:
 ```
-vi /etc/sudoers
+su
+sudo visudo
 ```
 
 then add this line:
