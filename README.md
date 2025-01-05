@@ -64,3 +64,6 @@ Put on a ventoy drive if want
 - Xpp/Onenote
 - Candapter Analyzer
 - Fusion 360
+
+IF AFTER FINISHING SETUP OSU FEELS FLOATY LOOK AT:
+- Dual Monitors (turn second one off)
