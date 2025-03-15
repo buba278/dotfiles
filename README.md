@@ -67,3 +67,6 @@ Put on a ventoy drive if want
 
 IF AFTER FINISHING SETUP OSU FEELS FLOATY LOOK AT:
 - Dual Monitors (turn second one off)
+- NVIDIA profiler
+- Make sure all overlay apps are disabled
+note: pretty sure fullscreen optimisations is irrelevant now
