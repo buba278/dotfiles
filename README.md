@@ -1,6 +1,6 @@
 # Debian
 
-![](https://raw.githubusercontent.com/buba278/dotfiles/refs/heads/master/readme_images/desktop_preview.png?token=GHSAT0AAAAAAC4YBIMC54QCNIF6GIYH6GTYZ3Y4G2A)
+![hi](readme_images/desktop_preview.png?raw=true)
 
 Things to cover
 fonts cursor wm bar runner appimages packages sshkey and agent stow system debinstal spotify yazi
