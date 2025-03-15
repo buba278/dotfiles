@@ -26,7 +26,8 @@ Other Apps (non packages):
 - 
 
 TODO: Make bash script
-unfortuntaley taking break from linux...
+
+but unfortuntaley taking break from linux...
 
 # Windows
 This is less important cause its not like actual dotfiles but a good refresher to do the manual setup a bit quicker
