@@ -25,6 +25,9 @@ Other Apps (non packages):
 - stm32cubeide [(manual package)](https://www.st.com/en/development-tools/stm32cubeide.html)
 - 
 
+TODO: Make bash script
+unfortuntaley taking break from linux...
+
 # Windows
 This is less important cause its not like actual dotfiles but a good refresher to do the manual setup a bit quicker
 
