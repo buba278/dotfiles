@@ -34,3 +34,156 @@ ungoogled-chromium
 idk if you have preference for the audio stuff but i used to use playerctl and pamixer if thats still good, and brightnessctl though im on a desktop so idk if I need that 
 
 had hyprshot and yeah idk give me some other suggestions
+
+# Setup
+## 1. housekeeping
+``` bash
+# Open the DNF configuration file with nano (a simple text editor)
+sudo nano /etc/dnf/dnf.conf
+```
+enable DNF parallel downlods by adding `max_parallel_downloads=10` to bottom of file
+
+or just run 
+``` bash
+echo "max_parallel_downloads=10" | sudo tee -a "/etc/dnf/dnf.conf"
+```
+where we effectively pipe (with output) and append our line
+
+then we can update
+``` bash
+sudo dnf upgrade --refresh -y
+```
+
+setup community package repo, RPM Fusion for stuff like NVIDIA drivers
+``` bash
+sudo dnf install \
+  https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+  https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm -y
+```
+
+install NVIDIA drivers and kernel modules
+``` bash
+sudo dnf install akmod-nvidia xorg-x11-drv-nvidia-cuda -y
+```
+
+reboot to make sure new kernel modules are loaded
+``` bash
+sudo reboot
+```
+
+### 1.2 DE
+install hyprland and associated thangs along with some goodies
+``` bash
+sudo dnf install hyprland hyprpaper foot waybar \
+xorg-x11-server-Xwayland qt5-qtwayland qt6-qtwayland \
+lxqt-policykit -y
+```
+- hyprland, hyprpaper, foot, waybar: The core components I chose.
+- Xwayland: The critical compatibility layer for non-Wayland apps.
+- qt-wayland: For Qt-based applications to run properly.
+- lxqt-policykit: The simple authentication agent that will ask for password.
+
+dev tools group for stuff like gcc and make
+``` bash
+sudo dnf groupinstall "Development Tools" -y
+sudo dnf install git -y # when making install script just have this as prereq
+```
+
+### 1.3 Other system needs
+ui stuff
+``` bash
+sudo dnf install fuzzel mako cliphist -y
+```
+- fuzzel: Your Wayland-native application launcher.
+- mako: Your notification daemon.
+- cliphist: The clipboard manager.
+
+system int 
+``` bash
+sudo dnf install thunar udiskie playerctl pamixer \
+xdg-desktop-portal-hyprland nwg-look -y
+```
+- Thunar: The file manager we'll use for file-picker dialogs.
+- udiskie: The service that will auto-mount USB drives.
+- playerctl & pamixer: For controlling media playback and volume.
+- xdg-desktop-portal-hyprland: The backend that allows apps to request things like file pickers.
+- nwg-look: A tool to set your cursor and application themes.
+
+screenshot utils
+``` bash
+sudo dnf install grim slurp swappy -y
+```
+
+- grim: The screenshot tool for Wayland.
+- slurp: The tool to select a region of the screen.
+- satty: The screenshot editor you can pipe the image to.
+
+## 1.4 actual software
+    ```bash
+    sudo dnf install neovim fish starship -y
+    ```
+
+Set Fish as Your Default Shell:
+log out and back in for this to take full effect.
+
+    ```bash
+    chsh -s $(which fish)
+    ```
+
+Install LazyVim:
+*Note: From this point on, you can likely run commands without `sudo` unless specified.*
+
+    ```bash
+    # Backup any existing nvim config
+    mv ~/.config/nvim{,.bak}
+    
+    # Clone the LazyVim starter
+    git clone https://github.com/LazyVim/starter ~/.config/nvim
+    ```
+    The next time you run `nvim`, LazyVim will install itself.
+
+Install Ungoogled Chromium via Flatpak:
+    ```bash
+    # Install flatpak
+    sudo dnf install flatpak -y
+    
+    # Add the main Flathub repository
+    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    
+    # Install Ungoogled Chromium
+    flatpak install flathub com.github.Eloston.UngoogledChromium
+    ```
+
+# 1.5 Backups
+
+Let's configure the system snapshots. We'll do a basic setup.
+
+1.  **Install Snapper:**
+
+    ```bash
+    sudo dnf install snapper python3-dnf-plugin-snapper -y
+    ```
+
+2.  **Create a Snapper Configuration for Your System Root (`/`):**
+
+    ```bash
+    # This deletes a default config that might exist and creates a new one
+    sudo snapper -c root create-config /
+    ```
+
+3.  **Enable Automatic Timeline Snapshots:**
+    This will take a snapshot every hour.
+
+    ```bash
+    sudo systemctl enable --now snapper-timeline.timer
+    ```
+    Now, Snapper will also automatically take a snapshot before and after every `dnf` command you run. You are now protected!
+
+run `hyprland` after startup to get into DE
+
+1.  **Find a Wallpaper:** Download a wallpaper you like and configure `hyprpaper`.
+2.  **Configure Waybar:** Edit `~/.config/waybar/config` and `style.css` to customize your status bar.
+3.  **Configure Starship & Fish:** Run `starship preset pure-preset > ~/.config/starship.toml` to get a good starting prompt, then explore the Starship website for more options.
+4.  **Theme Your Applications:** Run `nwg-look` to set a dark GTK theme and a cursor theme so your graphical apps like Thunar and Ungoogled Chromium look consistent. You may need to install themes first (e.g., `sudo dnf install adwaita-dark-theme bibata-cursor-themes`).
+5.  **Configure Fuzzel & Mako:** They have their own config files in `~/.config/fuzzel/fuzzel.ini` and `~/.config/mako/config` for you to customize colors and behavior.
+6.  **Set up BorgBackup:** Install it with `sudo dnf install borgbackup` and write a simple script to back up your `/home` directory to an external drive.
