@@ -121,7 +121,7 @@ sudo dnf install grim slurp satty -y
 ## 1.4 actual software
     ```bash
     sudo dnf copr enable atim/starship -y
-    sudo dnf install neovim fish starship -y
+    sudo dnf install firefox neovim fish starship -y
     ```
 
 Set Fish as Your Default Shell:
@@ -139,19 +139,6 @@ Install LazyVim:
     git clone https://github.com/LazyVim/starter ~/.config/nvim
     ```
     The next time you run `nvim`, LazyVim will install itself.
-
-Install Ungoogled Chromium via Flatpak:
-    ```bash
-    # Install flatpak
-    sudo dnf install flatpak -y
-    
-    # Add the main Flathub repository
-    flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    
-    # Install Ungoogled Chromium
-    flatpak install flathub io.github.ungoogled_software.ungoogled_chromium
-    # i think there is a way of optimising maybe there is also a -y flag?
-    ```
 
 # 1.5 Backups
 
