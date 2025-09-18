@@ -1,76 +1,36 @@
-# Debian
+# Pre-Ramble
+distros are just software philosiphy around repositories and package manager.
+i like history and rollback of dnf, I like fedora professional software repository testing and philosiphy of 6 month releases. also I like not having to do the tedious shit with arch just for the sake of it even though it was good to learn, and get a vibe for but really its just pretending cause if you really want to learn then go do linux from scratch, in fact go make a processor first, in fact make your own IC, and find the silicone and make the machinery yourself. dickhed.
 
-![hi](readme_images/desktop_preview.png?raw=true)
+we back to linux. but only on my desktop, because I still need to do uni and fs on my windows laptop. I can have fun at home.
 
-Things to cover
-fonts cursor wm bar runner appimages packages sshkey and agent stow system debinstal spotify yazi
+this setup will be based around fedora minimal install that I did through the everything net installer. refer to that ramble above if you ever forget why and question if you should try another distro. this will be a bit more slow and methodical cause im not using it for my main system yet im just slowly building things together. 
 
-setup sudoers file:
-```
-su
-sudo visudo
-```
+I initially started with fedora workstation 42, then i was like, damn this gnome thing is kinda too sterile and multi purpose, I kinda miss the instant feeling tm setup I had, it was more FUN. So then I tried the way install, then realised it was kinda ugly and I wanted things to be pretty so I'm now onto using hyperland for its transparency (not animations).
 
-then add this line:
-```
-chris  ALL=(ALL) ALL
-```
+Note that as of writing this right now I havent even installed anything, cause I don't have super amounts of time right now and I kinda want to do the setup and documentation at the same time, cause then it'll be easier to recreate or make a script for.
 
-```
-sudo apt install alacritty code feh fonts-firacode fonts-jetbrains-mono gh git i3 opentabletdriver qalc scrot stow xclip zathura vim
-```
+# rough things I want
+lazyvim
+dnf parallel downloads
+fedora minimal install
+system snapshots
+some backup system like maybe rsync?
+hyprland, 
+whatever wayland stuff I need for hyprland
+neovim foot 
+fish (ill have to learn about this)
+ waybar rofi
+I dont think I need thunar or yazi or any file explorer i want to get good at terminal file commands but I realise what about the file picker stuff hmm
+sound stuff setup
+cursors setup
+hyprpaper
+oh damn and think about the whole stuff how it used to be on arch of manually having to mount flashdrives and stuff I wonder if fedora already handles that? probably not unless I have a file explorer like thunar huh
+some sort of clipboard manager
+maybe dunst but feel free to recommend something else its just what I know
+idk if there is some authentication agent I need (i just want simple)
+ungoogled-chromium
 
-Other Apps (non packages):
-- yazi (source code)
-- stm32cubeide [(manual package)](https://www.st.com/en/development-tools/stm32cubeide.html)
-- 
+idk if you have preference for the audio stuff but i used to use playerctl and pamixer if thats still good, and brightnessctl though im on a desktop so idk if I need that 
 
-TODO: Make bash script
-
-but unfortuntaley taking break from linux...
-
-# Windows
-This is less important cause its not like actual dotfiles but a good refresher to do the manual setup a bit quicker
-
-Debloat windows with the [Chris Titus tool](https://github.com/ChrisTitusTech/winutil)
-## Microwin
-Run with admin:
-```
-irm "https://christitus.com/win" | iex
-```
-First get the MicroWin ISO to reinstall.
-
-When getting the ISO if there is a script running error, change the permissions
-```
-Set-ExecutionPolicy -ExecutionPolicy Unrestricted
-```
-Put on a ventoy drive if want
-
-## Apps
-- Photoshop / Adobe stuff (m0nkrus)
-- Altium
-- Equalizer APO / Peace
-- LTSpice
-- Teams
-- Moku
-- Motec Build/Tune/i2
-- Obsidian
-- Osu
-  - Batch Beatmap Downloader
-  - Osu trainer
-  - OBS
-- qalc
-- qBittorrent
-- Spotify/Spicetify
-- Stm32CubeIDE
-- Vesktop/Discord
-- 7zip
-- Xpp/Onenote
-- Candapter Analyzer
-- Fusion 360
-
-IF AFTER FINISHING SETUP OSU FEELS FLOATY LOOK AT:
-- Dual Monitors (turn second one off)
-- NVIDIA profiler
-- Make sure all overlay apps are disabled
-note: pretty sure fullscreen optimisations is irrelevant now
+had hyprshot and yeah idk give me some other suggestions
