@@ -38,7 +38,6 @@ had hyprshot and yeah idk give me some other suggestions
 # Setup
 ## 1. housekeeping
 ``` bash
-# Open the DNF configuration file with nano (a simple text editor)
 sudo nano /etc/dnf/dnf.conf
 ```
 enable DNF parallel downlods by adding `max_parallel_downloads=10` to bottom of file
@@ -73,7 +72,9 @@ sudo reboot
 
 ### 1.2 DE
 install hyprland and associated thangs along with some goodies
+
 ``` bash
+sudo dnf copr enable solopasha/hyprland
 sudo dnf install hyprland hyprpaper foot waybar \
 xorg-x11-server-Xwayland qt5-qtwayland qt6-qtwayland \
 lxqt-policykit -y
@@ -85,8 +86,7 @@ lxqt-policykit -y
 
 dev tools group for stuff like gcc and make
 ``` bash
-sudo dnf groupinstall "Development Tools" -y
-sudo dnf install git -y # when making install script just have this as prereq
+sudo dnf install @development-tools -y
 ```
 
 ### 1.3 Other system needs
@@ -111,7 +111,7 @@ xdg-desktop-portal-hyprland nwg-look -y
 
 screenshot utils
 ``` bash
-sudo dnf install grim slurp swappy -y
+sudo dnf install grim slurp satty -y
 ```
 
 - grim: The screenshot tool for Wayland.
@@ -120,6 +120,7 @@ sudo dnf install grim slurp swappy -y
 
 ## 1.4 actual software
     ```bash
+    sudo dnf copr enable atim/starship -y
     sudo dnf install neovim fish starship -y
     ```
 
@@ -134,9 +135,6 @@ Install LazyVim:
 *Note: From this point on, you can likely run commands without `sudo` unless specified.*
 
     ```bash
-    # Backup any existing nvim config
-    mv ~/.config/nvim{,.bak}
-    
     # Clone the LazyVim starter
     git clone https://github.com/LazyVim/starter ~/.config/nvim
     ```
@@ -151,7 +149,8 @@ Install Ungoogled Chromium via Flatpak:
     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
     
     # Install Ungoogled Chromium
-    flatpak install flathub com.github.Eloston.UngoogledChromium
+    flatpak install flathub io.github.ungoogled_software.ungoogled_chromium
+    # i think there is a way of optimising maybe there is also a -y flag?
     ```
 
 # 1.5 Backups
