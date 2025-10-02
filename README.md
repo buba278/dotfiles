@@ -1,4 +1,4 @@
-This is a config centered around the Fedora 42 Sway Spin.
+This is a config centered around the UEFI installed Fedora 42 Sway Spin.
 
 idk if you have preference for the audio stuff but i used to use playerctl and pamixer if thats still good, and brightnessctl though im on a desktop so idk if I need that 
 
@@ -78,8 +78,12 @@ flatpak run com.spotify.Client
 curl -fsSL https://raw.githubusercontent.com/spicetify/cli/main/install.sh | sh
 curl -fsSL https://raw.githubusercontent.com/spicetify/marketplace/main/resources/install.sh | sh
 spicetify
-spicetify --path /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/
-spicetify --prefs ~/.var/app/com.spotify.Client/config/spotify/prefs
+spicetify config spotify_path /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/
+spicetify config prefs_path ~/.var/app/com.spotify.Client/config/spotify/prefs
+
+sudo chmod a+wr /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify
+sudo chmod a+wr -R /var/lib/flatpak/app/com.spotify.Client/x86_64/stable/active/files/extra/share/spotify/Apps
+spicetify apply
 ```
 then install adblockify and theme
 
